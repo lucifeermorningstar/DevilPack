@@ -6,10 +6,10 @@ _get_repolink () {
     regex='(https?)://github.com/.+/.+'
     if [[ $UPSTREAM_REPO == "goodcat" ]]
     then
-        echo "aHR0cHM6Ly9naXRodWIuY29tL3NhbmR5MTcwOS9jYXR1c2VyYm90L2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
+        echo "aHR0cHM6Ly9naXRodWIuY29tL2x1Y2lmZWVybW9ybmluZ3N0YXIvZGV2aWx1c2VyYm90L2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
     elif [[ $UPSTREAM_REPO == "badcat" ]]
     then
-        echo "aHR0cHM6Ly9naXRodWIuY29tL2ppc2FuMDkvY2F0dXNlcmJvdC9hcmNoaXZlL21hc3Rlci56aXA=" | base64 -d
+        echo "aHR0cHM6Ly9naXRodWIuY29tL2x1Y2lmZWVybW9ybmluZ3N0YXIvZGV2aWx1c2VyYm90L2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
     elif [[ $UPSTREAM_REPO =~ $regex ]]
     then
         if [[ $UPSTREAM_REPO_BRANCH ]]
@@ -19,14 +19,14 @@ _get_repolink () {
             echo "${UPSTREAM_REPO}/archive/master.zip"
         fi
     else
-        echo "aHR0cHM6Ly9naXRodWIuY29tL3NhbmR5MTcwOS9jYXR1c2VyYm90L2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
+        echo "aHR0cHM6Ly9naXRodWIuY29tL2x1Y2lmZWVybW9ybmluZ3N0YXIvZGV2aWx1c2VyYm90L2FyY2hpdmUvbWFzdGVyLnppcA==" | base64 -d
     fi
 }
 
 
 _set_bot () {
     local zippath
-    zippath="catuserbot.zip"
+    zippath="legendbot.zip"
     echo "  Downloading source code ..."
     wget -q $(_get_repolink) -O "$zippath"
     echo "  Unpacking Data ..."
@@ -37,7 +37,7 @@ _set_bot () {
     rm -rf "$zippath"
     sleep 5
     cd $CATPATH
-    echo "    Starting CatUserBot    "
+    echo "    Starting DEVILBOT    "
     echo "
                         :'######:::::'###::::'########::::
                         '##... ##:::'## ##:::... ##..:::::
